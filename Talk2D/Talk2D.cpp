@@ -3,7 +3,7 @@
 #include "HeaderOnlyCsv.hpp"
 #include "CaesarCipher.h"
 
-using namespace NSTalkLib2;
+using namespace NSTalk2D;
 
 bool Talk2D::m_fastMode = false;
 
@@ -53,7 +53,7 @@ void Talk2D::Init(const std::wstring& csvfilepath,
     m_talkBallList = talkList;
 }
 
-void NSTalkLib2::Talk2D::UpdateConstValue()
+void NSTalk2D::Talk2D::UpdateConstValue()
 {
     if (m_fastMode)
     {
@@ -166,7 +166,7 @@ void Talk2D::Render()
     }
 }
 
-void NSTalkLib2::Talk2D::SetFastMode(const bool arg)
+void NSTalk2D::Talk2D::SetFastMode(const bool arg)
 {
     m_fastMode = arg;
 }

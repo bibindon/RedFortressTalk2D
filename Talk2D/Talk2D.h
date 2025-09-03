@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-namespace NSTalkLib2
+namespace NSTalk2D
 {
 class ISprite
 {
