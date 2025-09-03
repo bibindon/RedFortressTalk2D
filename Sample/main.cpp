@@ -282,7 +282,7 @@ LPD3DXEFFECT pEffect = NULL;
 
 bool bFinish = false;
 
-Talk* g_talk = nullptr;
+Talk2D* g_talk = nullptr;
 
 void TextDraw(LPD3DXFONT pFont, wchar_t* text, int X, int Y)
 {
@@ -615,18 +615,18 @@ LRESULT WINAPI MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
             {
                 delete g_talk;
             }
-            g_talk = new Talk();
+            g_talk = new Talk2D();
             InitTalk();
             break;
         }
         case 'F':
         {
-            Talk::SetFastMode(true);
+            Talk2D::SetFastMode(true);
             break;
         }
         case 'G':
         {
-            Talk::SetFastMode(false);
+            Talk2D::SetFastMode(false);
             break;
         }
         case VK_RETURN:

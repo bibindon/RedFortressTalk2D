@@ -5,7 +5,7 @@
 
 using namespace NSTalkLib2;
 
-bool Talk::m_fastMode = false;
+bool Talk2D::m_fastMode = false;
 
 static std::vector<std::wstring> split(const std::wstring& s, wchar_t delim)
 {
@@ -21,7 +21,7 @@ static std::vector<std::wstring> split(const std::wstring& s, wchar_t delim)
     return result;
 }
 
-void Talk::Init(const std::wstring& csvfilepath,
+void Talk2D::Init(const std::wstring& csvfilepath,
                 IFont* font,
                 ISoundEffect* SE,
                 ISprite* sprite,
@@ -53,7 +53,7 @@ void Talk::Init(const std::wstring& csvfilepath,
     m_talkBallList = talkList;
 }
 
-void NSTalkLib2::Talk::UpdateConstValue()
+void NSTalkLib2::Talk2D::UpdateConstValue()
 {
     if (m_fastMode)
     {
@@ -67,7 +67,7 @@ void NSTalkLib2::Talk::UpdateConstValue()
     }
 }
 
-std::vector<TalkBall*> Talk::CreateTalkList()
+std::vector<TalkBall*> Talk2D::CreateTalkList()
 {
     std::vector<TalkBall*> talkList;
 
@@ -92,7 +92,7 @@ std::vector<TalkBall*> Talk::CreateTalkList()
     return talkList;
 }
 
-void Talk::Next()
+void Talk2D::Next()
 {
     if (m_waitNextCount < wait_next_frame)
     {
@@ -118,7 +118,7 @@ void Talk::Next()
 }
 
 // 戻り値は会話終了フラグ
-bool Talk::Update()
+bool Talk2D::Update()
 {
     UpdateConstValue();
 
@@ -152,7 +152,7 @@ bool Talk::Update()
     return isFinish;
 }
 
-void Talk::Render()
+void Talk2D::Render()
 {
     m_talkBallList.at(m_talkBallIndex)->Render();
 
@@ -166,12 +166,12 @@ void Talk::Render()
     }
 }
 
-void NSTalkLib2::Talk::SetFastMode(const bool arg)
+void NSTalkLib2::Talk2D::SetFastMode(const bool arg)
 {
     m_fastMode = arg;
 }
 
-Talk::~Talk()
+Talk2D::~Talk2D()
 {
     for (size_t i = 0; i < m_talkBallList.size(); ++i)
     {

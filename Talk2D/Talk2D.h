@@ -81,11 +81,11 @@ private:
     bool m_isFinish = false;
 };
 
-class Talk
+class Talk2D
 {
 public:
 
-    ~Talk();
+    ~Talk2D();
 
     void Init(const std::wstring& csvFilename,
               IFont* font,
