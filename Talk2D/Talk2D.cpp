@@ -171,6 +171,30 @@ void NSTalk2D::Talk2D::SetFastMode(const bool arg)
     m_fastMode = arg;
 }
 
+void NSTalk2D::Talk2D::OnDeviceLost()
+{
+    for (auto& item : m_talkBallList)
+    {
+        item->OnDeviceLost();
+    }
+    m_sprFade->OnDeviceLost();
+    m_sprTextBack->OnDeviceLost();
+    m_sprite->OnDeviceLost();
+    m_font->OnDeviceLost();
+}
+
+void NSTalk2D::Talk2D::OnDeviceReset()
+{
+    for (auto& item : m_talkBallList)
+    {
+        item->OnDeviceReset();
+    }
+    m_sprFade->OnDeviceReset();
+    m_sprTextBack->OnDeviceReset();
+    m_sprite->OnDeviceReset();
+    m_font->OnDeviceReset();
+}
+
 Talk2D::~Talk2D()
 {
     for (size_t i = 0; i < m_talkBallList.size(); ++i)
@@ -258,6 +282,20 @@ void TalkBall::Init(const std::vector<std::wstring>& csvOneLine,
 
 
     m_textShow.resize(3);
+}
+
+void TalkBall::OnDeviceLost()
+{
+    m_spriteLeft->OnDeviceLost();
+    m_spriteRight->OnDeviceLost();
+    m_spriteBack->OnDeviceLost();
+}
+
+void TalkBall::OnDeviceReset()
+{
+    m_spriteLeft->OnDeviceReset();
+    m_spriteRight->OnDeviceReset();
+    m_spriteBack->OnDeviceReset();
 }
 
 void TalkBall::Update(const bool fastmode)
